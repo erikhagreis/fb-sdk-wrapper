@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": [".prettierrc", ".babelrc"],
+      "options": { "parser": "json" }
+    }
+  ]
+}
