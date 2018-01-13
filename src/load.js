@@ -1,17 +1,28 @@
-export default function load() {
+
+/**
+ * Injects the script for the FB JS SDK into the page.
+ * 
+ * @param {Object} params containing optional settings
+ * 
+ * @return {Promise} for the global window.FB object
+ */
+export default function load(params = {
+  locale = 'en_US'
+}) {
   return new Promise((resolve, reject) => {
     if (window.FB) {
       return resolve(window.FB);
     }
 
+    const src = `//connect.facebook.net/${params.locale}/sdk.js`
     const script = document.createElement('script');
     script.id = 'facebook-jssdk';
-    script.src = '//connect.facebook.net/en_US/sdk.js';
+    script.src = src;
     script.async = true;
     script.addEventListener('load', () => resolve(window.FB), false);
-    script.addEventListener('error', () => reject('Error loading Facebook JS SDK'), false);
+    script.addEventListener('error', () => reject(`Error loading Facebook JS SDK from ${src}`), false);
 
-    const sibling = d.getElementsByTagName('script')[0];
+    const sibling = document.getElementsByTagName('script')[0];
     sibling.parentNode.insertBefore(script, sibling);
   });
 };

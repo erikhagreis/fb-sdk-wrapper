@@ -1,12 +1,17 @@
-import apiCall from './api';
+import api from './api';
+import getGlobalFB from './getGlobalFB';
+import getLoginStatus from './getLoginStatus';
 import init from './init';
 import load from './load';
-import { login, getLoginStatus } from './login';
+import login from './login';
+import ui from './ui';
 
 export {
-  apiCall,
+  api,
+  getGlobalFB,
+  getLoginStatus,
   load,
   init,
   login,
-  getLoginStatus
+  ui
 };

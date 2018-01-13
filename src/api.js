@@ -1,19 +1,20 @@
+import loadEnforcer from './loadEnforcer';
+
 /**
+ * Make an API call to the Graph API.
+ * 
  * https://developers.facebook.com/docs/javascript/reference/FB.api
  * https://developers.facebook.com/docs/graph-api/reference/
  * 
- * @param {Object} FB - the window.FB object
- * @param {String} access_token - the accesstoken from login / getloginstatus
  * @param {String} path - endpoint path to call
  * @param {String} method - http method to use
  * @param {Object} params - parameters for the Graph API call
+ * 
+ * @return {Promise} for the reply from FB
  */
-export function apiCall(FB, access_token, path, method = 'get', params = {}) {
+const api = loadEnforcer((FB, path, method = 'get', params = {}) => {
   return new Promise((resolve, reject) => {
-    FB.api(path, {
-      access_token,
-      ...params
-    },
+    FB.api(path, method, params,
     (response) => {
       if (!response) {
         reject('No response from Facebook');
@@ -24,4 +25,6 @@ export function apiCall(FB, access_token, path, method = 'get', params = {}) {
       }
     });
   });
-};
+});
+
+export default api;
