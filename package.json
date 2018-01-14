@@ -2,7 +2,7 @@
   "name": "fb-sdk-wrapper",
   "version": "0.0.1",
   "description": "Wraps around the Facebook Javascript SDK to make it usable as a ES6 module",
-  "main": "./src/index.js",
+  "main": "./lib/index.js",
   "repository": "https://github.com/erikhagreis/fb-sdk-wrapper",
   "author": "Erik Hagreis",
   "keywords": [
@@ -16,7 +16,7 @@
   "private": false,
   "scripts": {
     "precommit": "lint-staged",
-    "prepublishzz": "babel src --out-dir lib --ignore spec.js"
+    "prepublish": "babel src --out-dir lib --ignore spec.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
