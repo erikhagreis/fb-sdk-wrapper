@@ -8,19 +8,17 @@ import loadEnforcer from './loadEnforcer';
  * https://developers.facebook.com/docs/javascript/reference/FB.init/v2.11
  * https://developers.facebook.com/apps/
  *
- * @param {Object} FB - the window.FB object
- * @param {String} appId - the FB app ID
- * @param {Object} params - Params object (optional)
+ * @param {Object} params - Params object
  */
-const init = loadEnforcer((FB, appId, params = {}) => {
+const init = loadEnforcer((FB, params = {}) => {
   params = defaults({}, params, {
     xbfml: false,
     version: 'v2.11'
   });
-  FB.init({
-    appId: appId,
-    ...params
-  });
+  if (!params.appId) {
+    throw new Error('FB.init: params.appId is required.');
+  }
+  FB.init(params);
 });
 
 export default init;
