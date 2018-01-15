@@ -1,7 +1,7 @@
 # fb-sdk-wrapper
 Wraps around the Facebook Javascript SDK to make it usable as a ES6 module. Instead of having to add a script tag to your html like it's still 2010, just import this module and it will do it for you. As a bonus it will provide you with a nicer api by using promises.
 
-Essentially, this library exposes functions with the same signature as the official JS SDK. The main difference is that instead of requiring callback functions as parameters of the SDK functions, the wrapper will return a promise for the response value.
+Essentially, this library exposes functions with almost the same signature as the official JS SDK. The only difference is that instead of requiring callback functions as parameters of the SDK functions, the wrapper will return a promise for the response value.
 
 fb-sdk-wrapper focuses on the 'core' authentication, graph API and UI methods and makes them a little nicer to use. The other functionality can by accessed by simply referring to `window.FB` (after the `load` function has resolved).
 
@@ -51,8 +51,21 @@ Facebook.getLoginStatus()
     }
   });
 
-// Login + get authorisation
+// Login + get basic authorisation ('public profile')
 Facebook.login()
+  .then((response) => {
+    if (response.status === 'connected') {
+      // logged in
+    } else {
+      // not logged in
+    }
+  });
+
+// Login + get authorisation for additional scopes
+Facebook.login({
+    scope: 'public_profile,email,user_friends', 
+    return_scopes: true
+  })
   .then((response) => {
     if (response.status === 'connected') {
       // logged in
@@ -76,14 +89,14 @@ When that's out of the way, you can query the graph API:
 import * as Facebook from 'fb-sdk-wrapper';
 
 // Simplest call
-Facebook.api('dewolfficial/posts')
+Facebook.api('/dewolfficial/posts')
   .then((response) => {
     // data's here!
   });
 
 // A bit more elaborate request
-Facebook.api('168546367204_10155245614532205', 'get', { 
-    fields: 'created_time,id,message_message_tags' 
+Facebook.api('/168546367204_10155245614532205', 'get', { 
+    fields: 'created_time,id,message,message_tags' 
   })
   .then((response) => {
     // data's here!
