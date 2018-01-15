@@ -16,7 +16,8 @@
   "private": false,
   "scripts": {
     "precommit": "lint-staged",
-    "prepare": "babel src --out-dir lib --ignore spec.js"
+    "prepare": "babel src --out-dir lib --ignore spec.js",
+    "prepush": "jest"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
