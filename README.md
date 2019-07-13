@@ -17,7 +17,7 @@ yarn add fb-sdk-wrapper
 ```
 
 ## Usage
-Here are some examples of how to use FB SDK Wrapper. 
+Here are some examples of how to use FB SDK Wrapper.
 
 Again, the main thing to keep in mind is that this API tries to follow the official [FB JS SDK reference](https://developers.facebook.com/docs/javascript/reference) as closely as possible except that all callbacks are replaced by promises for the response.
 
@@ -63,7 +63,7 @@ Facebook.login()
 
 // Login + get authorisation for additional scopes
 Facebook.login({
-    scope: 'public_profile,email,user_friends', 
+    scope: 'public_profile,email,user_friends',
     return_scopes: true
   })
   .then((response) => {
@@ -95,8 +95,8 @@ Facebook.api('/dewolfficial/posts')
   });
 
 // A bit more elaborate request
-Facebook.api('/168546367204_10155245614532205', 'get', { 
-    fields: 'created_time,id,message,message_tags' 
+Facebook.api('/168546367204_10155245614532205', 'get', {
+    fields: 'created_time,id,message,message_tags'
   })
   .then((response) => {
     // data's here!
