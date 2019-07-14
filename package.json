@@ -1,6 +1,6 @@
 {
   "name": "fb-sdk-wrapper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wraps around the Facebook Javascript SDK to make it usable as a ES6 module",
   "main": "./lib/index.js",
   "repository": "https://github.com/erikhagreis/fb-sdk-wrapper",
