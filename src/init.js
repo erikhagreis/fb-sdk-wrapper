@@ -12,7 +12,7 @@ export default function initFactory(FB) {
    */
   return function init(params = {}) {
     params = defaults({}, params, {
-      xbfml: false,
+      xfbml: false,
       version: 'v2.11'
     });
     if (!params.appId) {
