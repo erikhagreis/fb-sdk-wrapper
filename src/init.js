@@ -15,9 +15,6 @@ export default function initFactory(FB) {
       xfbml: false,
       version: 'v2.11'
     });
-    if (!params.appId) {
-      throw new Error('FB.init: params.appId is required.');
-    }
     FB.init(params);
   };
 }
