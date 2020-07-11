@@ -2,7 +2,7 @@
  * Returns the window.FB object and allows access to all its functionality
  * directly.
  *
- * https://developers.facebook.com/docs/javascript/reference/v2.11
+ * https://developers.facebook.com/docs/javascript/reference/v7.0
  *
  * @return {Object} - the global window.FB object
  */
