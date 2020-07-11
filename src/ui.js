@@ -9,7 +9,7 @@ export default function uiFactory(FB) {
    */
   return function ui(params = {}) {
     return new Promise((resolve, reject) => {
-      FB.ui(params, response => {
+      FB.ui(params, (response) => {
         if (!response) {
           reject('No response from Facebook');
         } else if (response.error) {

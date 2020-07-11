@@ -1,4 +1,4 @@
-export default FB => {
+export default (FB) => {
   /**
    * Returns the Facebook Login status of a user, with an authResponse object if
    * they are logged in.

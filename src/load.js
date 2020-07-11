@@ -9,7 +9,7 @@ import { defaults } from 'lodash';
  */
 export default function load(params = {}) {
   params = defaults({}, params, {
-    locale: 'en_US'
+    locale: 'en_US',
   });
   return new Promise((resolve, reject) => {
     if (window.FB) {

@@ -13,7 +13,7 @@ export default function apiFactory(FB) {
    */
   return function api(path, ...rest) {
     return new Promise((resolve, reject) => {
-      FB.api(path, ...rest, response => {
+      FB.api(path, ...rest, (response) => {
         if (!response) {
           reject('No response from Facebook');
         } else if (response.error) {
